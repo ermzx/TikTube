@@ -119,7 +119,7 @@
                 
                 <!-- 根据文本类型显示不同内容 -->
                 <div v-if="segment.type === 0 || segment.content">
-                  <ShowMarkdown :markdown="segment.content" :speech="true" :anchor="index + 1" />
+                  <ShowMarkdown :markdown="segment.content" :speech="false" :anchor="index + 1" />
                 </div>
                 <div v-else-if="segment.type === 1" class="text-center py-4">
                   <v-icon size="large" color="warning" class="mb-2">mdi-comment-alert</v-icon>

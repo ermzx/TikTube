@@ -2,7 +2,9 @@ package com.buguagaoshu.tiktube.utils;
 
 import com.buguagaoshu.tiktube.config.MyConfigProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.lionsoul.ip2region.xdb.LongByteArray;
 import org.lionsoul.ip2region.xdb.Searcher;
+import org.lionsoul.ip2region.xdb.Version;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -25,14 +27,14 @@ public class IpUtil {
     public IpUtil(MyConfigProperties myConfigProperties) {
         this.myConfigProperties = myConfigProperties;
         // 1、从 dbPath 加载整个 xdb 到内存。
-        byte[] cBuff = new byte[0];
+        LongByteArray cBuff = null;
         try {
             cBuff = Searcher.loadContentFromFile(myConfigProperties.getIpDbPath());
         } catch (Exception e) {
             log.error("不能正常加载IP地址数据库配置 {}: {}\n", myConfigProperties.getIpDbPath(), e);
         }
         try {
-            this.searcher = Searcher.newWithBuffer(cBuff);
+            this.searcher = Searcher.newWithBuffer(Version.IPv4, cBuff);
         } catch (Exception e) {
             log.error("不能创建IP查找缓存，IP地址查找功能失效: {}\n", e);
         }

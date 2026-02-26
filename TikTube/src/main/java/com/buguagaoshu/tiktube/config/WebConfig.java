@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 
+import org.springframework.boot.web.error.ErrorPage;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
-import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -136,7 +136,8 @@ public class WebConfig implements WebMvcConfigurer {
 //                         "/api/studio/article/delete",
 //                         // 用户状态更新接口
 //                         "/api/upload/video",
-//                         "/api/upload/photo"
+//                         "/api/upload/photo",
+//                         "/api/upload/article"
 //                 );
     }
 
