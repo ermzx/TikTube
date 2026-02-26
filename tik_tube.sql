@@ -157,7 +157,7 @@ CREATE TABLE `favorites_label`  (
   `user_id` bigint NOT NULL,  
   `create_time` bigint NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `find_favorites_lable_by_user`(`user_id`),
+  INDEX `find_favorites_lable_by_user`(`user_id`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '收藏夹' ROW_FORMAT = DYNAMIC;
 
 
